@@ -14,8 +14,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
-const handleExit = () => {
-    BackHandler.exitApp();
+const handleLogout = () => {
+    console.warn("logout pressed")
 };
 
 const CustomDrawer = props => {
@@ -26,22 +26,27 @@ const CustomDrawer = props => {
                 {...props}
                 contentContainerStyle={{ backgroundColor: '#232b2b' }}>
                 <ImageBackground
-                    //source={require('../../../assets/s2c.png')}
-                    style={{ padding: 20 }}>
+                    source={require('../../../assets/sgbd.png')}
+                    style={{ padding: 2, height: 170 }}>
+
+                    {/*
                     <Image
                         source={require('../../../assets/splash.png')}
-                        style={{ height: 70, width: 70 }}
+                        style={{ height: 70, width: 70}}
                     />
-
-                    <View style={{ flexDirection: 'row' }}>
-
+                    */}
 
 
-                        <View>
+                    <View style={{ marginTop: 130, marginLeft: 20 }}>
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+
+                            <View style={{marginTop: 7, marginRight: 5}}>
+                                <Ionicons name="cash-sharp" size={22} color={'white'} />
+                            </View>
                             <Text
                                 style={{
-                                    color: '#fff',
-                                    fontSize: 18,
+                                    color: 'white',
+                                    fontSize: 22,
                                     fontWeight: 'bold',
                                 }}>
                                 purchase-front1
@@ -56,7 +61,7 @@ const CustomDrawer = props => {
 
             <View style={{ padding: 10, borderTopWidth: 1, borderTopColor: '#ccc' }}>
 
-                <TouchableOpacity onPress={handleExit} style={{ paddingVertical: 15 }}>
+                <TouchableOpacity onPress={handleLogout} style={{ paddingVertical: 15 }}>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Ionicons name="exit-outline" size={22} />
                         <Text
@@ -65,7 +70,7 @@ const CustomDrawer = props => {
                                 fontWeight: 'bold',
                                 marginLeft: 5,
                             }}>
-                            Exit
+                            Logout
                         </Text>
                     </View>
                 </TouchableOpacity>

@@ -1,14 +1,15 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import HomeScreen from '../screens/HomeScreen';
+import HomeScreen from '../component/HomeScreen';
 import { NavigationContainer } from '@react-navigation/native';
-import AboutScreen from '../screens/AboutScreen';
-import CustomDrawer from '../components/CustomDrawer/CustomDrawer';
+import AboutScreen from '../component/AboutScreen';
+import CustomDrawer from '../zynerator/CustomDrawer/CustomDrawer';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import PurchaseDetails from '../screens/Purchase/PurchaseDetails';
-import PurchaseList from '../screens/Purchase/PurchaseList';
-import PurchaseCreate from '../screens/Purchase/PurchaseCreate';
-import Purchase from '../screens/Purchase/Purchase';
+import PurchaseAdminView from '../component/admin/view/core/purchase/view/PurchaseAdminView';
+import PurchaseAdminList from '../component/admin/view/core/purchase/list/purchase-list-admin.component';
+import PurchaseAdminCreate from '../component/admin/view/core/purchase/create/purchase-create-admin.component';
+import Purchase from '../component/admin/view/core/purchase/Purchase';
+import PurchaseAdminEdit from '../component/admin/view/core/purchase/edit/purchase-edit-admin.component';
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -75,20 +76,25 @@ function AppNavigation() {
         />
         <Stack.Screen
           name="PurchaseDetails"
-          component={PurchaseDetails}
-          options={({ /*route*/ }) => ({ headerTitle: 'Settings' /*route.params.Ditem.title*/ })}
+          component={PurchaseAdminView}
+          options={({ /*route*/ }) => ({ headerTitle: 'PurchaseDetails' /*route.params.Ditem.title*/ })}
         />
 
         <Stack.Screen
           name="PurchaseList"
-          component={PurchaseList}
-          options={{ title: 'Scan' }}
+          component={PurchaseAdminList}
+          options={{ title: 'PurchaseList' }}
         />
 
         <Stack.Screen
           name="PurchaseCreate"
-          component={PurchaseCreate}
-          options={{ title: 'New APR' }}
+          component={PurchaseAdminCreate}
+          options={{ title: 'PurchaseCreate' }}
+        />
+
+        <Stack.Screen
+          name="PurchaseUpdate"
+          component={PurchaseAdminEdit}
         />
 
 
